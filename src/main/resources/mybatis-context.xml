@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd" default-lazy-init="true">
+    <description>MyBatis的数据库持久层配置/配置主-从数据源</description>
+    <bean id="masterSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" name="masterSqlSessionFactory">
+        <!--<property name="configLocation" value="classpath:mybatis/mybatis-config-master.xml" />-->
+        <property name="dataSource" ref="masterDataSource"/>
+        <property name="mapperLocations">
+            <list>
+                <value>classpath*:mappermaster/*Mapper.xml</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="slaveSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" name="slaveSqlSessionFactory">
+        <!--<property name="configLocation" value="classpath:mybatis/mybatis-config-slave.xml" />-->
+        <property name="dataSource" ref="slaveDataSource"/>
+        <property name="mapperLocations">
+            <list>
+                <value>classpath*:mapperslave/*Mapper.xml</value>
+            </list>
+        </property>
+    </bean>
+</beans>
