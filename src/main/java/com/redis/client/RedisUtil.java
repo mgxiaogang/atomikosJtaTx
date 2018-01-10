@@ -5,7 +5,7 @@ import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 /**
- * Redis操作
+ * Redis操作工具类
  */
 public final class RedisUtil {
 
