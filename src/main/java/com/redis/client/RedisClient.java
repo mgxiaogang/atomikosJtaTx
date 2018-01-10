@@ -7,6 +7,9 @@ import redis.clients.jedis.Transaction;
 
 import java.util.List;
 
+/**
+ * Redis客户端入口
+ */
 public class RedisClient {
 
     public static void main(String[] args) {
